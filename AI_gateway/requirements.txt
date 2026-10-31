@@ -1,0 +1,16 @@
+# Web framework
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# Pydantic (v2 compatible) + settings
+pydantic==2.6.4
+pydantic-settings==2.2.1
+
+# Groq LLM client (open-source friendly)
+groq==1.7.0
+
+# Observability
+prometheus-client==0.20.0
+
+# Utilities
+python-dotenv==1.0.0
