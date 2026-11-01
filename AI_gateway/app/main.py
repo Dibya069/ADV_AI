@@ -8,6 +8,7 @@ Stack:
   - Guardrails (input/output safety middleware)
 """
 
+from email.policy import default
 import os
 import time
 import logging
@@ -23,6 +24,16 @@ from prometheus_client import (
     CONTENT_TYPE_LATEST,
 )
 from dotenv import load_dotenv
+
+from litellm import acompletion, completion_cost
+from litellm.caching import Cache
+import litellm
+litellm.suppress_debug_info = True
+
+import warnings
+warnings.filterwarnings("ignore")
+logging.getLogger("LiteLLM").setLevel(logging.ERROR)
+litellm.cache = Cache(type="local")
 
 # ---------------------------------------------------------------------------
 # Optional Groq import (fails gracefully if not installed)
@@ -57,7 +68,9 @@ logger = logging.getLogger("ai_gateway")
 # ---------------------------------------------------------------------------
 class Settings(BaseSettings):
     groq_api_key: str = ""
-    groq_model: str = "llama3-8b-8192"
+    groq_llama_model: str = "llama3-8b-8192"
+    groq_gpt_model: str = ""
+    groq_qwen_model: str = ""
     guardrails_enabled: bool = True
     app_env: str = "development"
 
@@ -160,6 +173,34 @@ class ChatResponse(BaseModel):
     tokens_used: int | None = None
 
 # ---------------------------------------------------------------------------
+# Models + Unified APIs + Fallback + Caching (as it call acompletion func instead of completion, we can't cache here, that why I have cached in globally[at line 36])
+# ---------------------------------------------------------------------------
+class Models:
+    def __init__(self):
+        self.model_qwen = settings.groq_qwen_model
+        self.model_llama = settings.groq_llama_model
+        self.model_gpt = settings.groq_gpt_model
+
+    async def model_call(self, payload, model):
+        model_response = await acompletion(
+            model=f"groq/{model}",
+            api_key=settings.groq_api_key,
+            messages=[
+                {"role": "system", "content": payload.system_prompt},
+                {"role": "user", "content": payload.message},
+            ],
+            temperature=payload.temperature,
+            max_tokens=payload.max_tokens,
+            fallbacks = [
+                f"groq/{self.model_gpt}",
+                f"groq/{self.model_llama}"
+            ]
+        )
+
+        return model_response
+
+
+# ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
 @app.get("/health", tags=["Observability"])
@@ -194,30 +235,23 @@ async def chat_endpoint(payload: ChatRequest):
         raise HTTPException(status_code=503, detail="Groq client is not installed.")
     if not settings.groq_api_key:
         raise HTTPException(status_code=503, detail="GROQ_API_KEY is not configured.")
-
-    client = GroqClient(api_key=settings.groq_api_key)
-
+    model_call = Models()
+    t1 = time.time()
     try:
-        completion = client.chat.completions.create(
-            model=settings.groq_model,
-            messages=[
-                {"role": "system", "content": payload.system_prompt},
-                {"role": "user", "content": payload.message},
-            ],
-            temperature=payload.temperature,
-            max_tokens=payload.max_tokens,
-        )
+        default_model = model_call.model_qwen
+        res_completion = await model_call.model_call(payload, default_model)
     except Exception as exc:
         logger.error("Groq API error: %s", exc)
         raise HTTPException(status_code=502, detail=f"LLM call failed: {exc}")
 
-    response_text = completion.choices[0].message.content
-    tokens_used = getattr(completion.usage, "total_tokens", None)
+    response_text = res_completion.choices[0].message.content
+    tokens_used = getattr(res_completion.usage, "total_tokens", None)
+    cost = completion_cost(model = f"groq/{res_completion.model}" , completion_response=res_completion)
+    logger.info(f"Cost: ${cost}, Time: {time.time() - t1}")
 
     # Track token usage
     if tokens_used:
-        LLM_TOKEN_COUNT.labels(model=settings.groq_model).inc(tokens_used)
-        logger.info("LLM_TOKEN_COUNT:%s ", LLM_TOKEN_COUNT)
+        LLM_TOKEN_COUNT.labels(model=res_completion.model).inc(tokens_used)
 
     # ── Output guardrails ─────────────────────────────────────────────────
     if settings.guardrails_enabled:
@@ -227,6 +261,6 @@ async def chat_endpoint(payload: ChatRequest):
 
     return ChatResponse(
         response=response_text,
-        model=settings.groq_model,
-        tokens_used=tokens_used,
+        model= res_completion.model,
+        tokens_used=tokens_used
     )
