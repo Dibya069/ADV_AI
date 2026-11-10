@@ -12,7 +12,7 @@ Concurrency
 
 Handle multiple tasks by making progress on them during overlapping periods.
 
-[Demystifying Parallelism vs. Concurrency with Processes and Threads | by Tai | Medium](https://images.openai.com/static-rsc-4/z1TC1vWmtve5RfbwnUV3rNytOTt7eJK115Dt5L1PRy8bsCobC-h-0l8JcESWHzqj8rcy3Kies4vDLQtWCZcW5rD_0jgoCUQQFHAUenKmpMr3a83rAQLCFemCbXxz9vAJBtC5mY31yZCA1QSgzJB9D4wEP-Uc0LYfhwtu2FEhMQ4?purpose=inline)
+![Demystifying Parallelism vs. Concurrency with Processes and Threads | by Tai | Medium](https://images.openai.com/static-rsc-4/z1TC1vWmtve5RfbwnUV3rNytOTt7eJK115Dt5L1PRy8bsCobC-h-0l8JcESWHzqj8rcy3Kies4vDLQtWCZcW5rD_0jgoCUQQFHAUenKmpMr3a83rAQLCFemCbXxz9vAJBtC5mY31yZCA1QSgzJB9D4wEP-Uc0LYfhwtu2FEhMQ4?purpose=inline)
 
 Tasks take turns or yield while waiting.
 
@@ -20,7 +20,7 @@ Parallelism
 
 Execute multiple tasks at exactly the same time.
 
-[Chapter 4: Threads. -  ppt download](https://images.openai.com/static-rsc-4/VnoQWGS6i3pMOPBo5ZBLVsSQx8A--Cy1fx-oIr4QI0wUbEE-u3FiFLkuEgzkgnDPvB3o8QLhHeh0RLRch-_AmBeRM_KGy4p16_QAmOtSiaLE8dHs4QAFgXdN2nwL21PR0HhT7obMwN8pEmEhqiFSi1F8Lbj3WI738gLPLiiYa7Y?purpose=inline)
+![Chapter 4: Threads. -  ppt download](https://images.openai.com/static-rsc-4/VnoQWGS6i3pMOPBo5ZBLVsSQx8A--Cy1fx-oIr4QI0wUbEE-u3FiFLkuEgzkgnDPvB3o8QLhHeh0RLRch-_AmBeRM_KGy4p16_QAmOtSiaLE8dHs4QAFgXdN2nwL21PR0HhT7obMwN8pEmEhqiFSi1F8Lbj3WI738gLPLiiYa7Y?purpose=inline)
 
 Tasks execute simultaneously on multiple cores or processors.
 
@@ -48,9 +48,9 @@ Examples:
 
 Use for simple, dependent tasks
 
-[Concurrent Programming Notes Part 2: Understanding Serial vs Parallel Execution | by Bahadır AKDEMİR | Medium](https://images.openai.com/static-rsc-4/s3qauDECvT-H4LcpD4-jFUWy_hP4KefFMH7zH96adv-MHgmnm7AWJDprtVN1tiJ7MsV0Gd51Z72AoZ8aCRYKnGbR95oYPQdcc4zEPxes_j8zsFbVv0R_fCu2TcDoJ59yp_ccvFoCVGgrzCW-8-O4mxjF28VhAjQXX_kQUYhvf10?purpose=inline)
+![Concurrent Programming Notes Part 2: Understanding Serial vs Parallel Execution | by Bahadır AKDEMİR | Medium](https://images.openai.com/static-rsc-4/s3qauDECvT-H4LcpD4-jFUWy_hP4KefFMH7zH96adv-MHgmnm7AWJDprtVN1tiJ7MsV0Gd51Z72AoZ8aCRYKnGbR95oYPQdcc4zEPxes_j8zsFbVv0R_fCu2TcDoJ59yp_ccvFoCVGgrzCW-8-O4mxjF28VhAjQXX_kQUYhvf10?purpose=inline)
 
-[medium.com](https://medium.com/%40akdemir_bahadir/concurrent-programming-notes-part-2-understanding-serial-vs-parallel-execution-97c87358631f?utm_source=chatgpt.com)
+![medium.com](https://medium.com/%40akdemir_bahadir/concurrent-programming-notes-part-2-understanding-serial-vs-parallel-execution-97c87358631f?utm_source=chatgpt.com)
 
 Scenario: You need to call three APIs, and each API depends on the previous API's response.
 
@@ -64,9 +64,9 @@ When: Tasks are dependent, or there are very few operations and simplicity matte
 
 Use for blocking I/O
 
-[Custom Executor Service With Metrics | by Soumya Acharya | Medium](https://images.openai.com/static-rsc-4/HE7BjwKmPRSk7ipdi-HoB4V5ujSYpKShMa9IZkpbckgGXZrz6v9kott6xlEnXLplxGc2U6tyHgeuFqW0mJVOtUZCVdPQheaefsp4T2bFDzvbtf8oNgZWO3EdTr-RHYAr9g_xaNYiNUvyXUpHSK1zYrOTy4ppbG9xm9yoIl-ED90?purpose=inline)
+![Custom Executor Service With Metrics | by Soumya Acharya | Medium](https://images.openai.com/static-rsc-4/HE7BjwKmPRSk7ipdi-HoB4V5ujSYpKShMa9IZkpbckgGXZrz6v9kott6xlEnXLplxGc2U6tyHgeuFqW0mJVOtUZCVdPQheaefsp4T2bFDzvbtf8oNgZWO3EdTr-RHYAr9g_xaNYiNUvyXUpHSK1zYrOTy4ppbG9xm9yoIl-ED90?purpose=inline)
 
-[medium.com](https://medium.com/%40cse.soumya/custom-executor-service-with-metrics-8f9802468eec?utm_source=chatgpt.com)
+![medium.com](https://medium.com/%40cse.soumya/custom-executor-service-with-metrics-8f9802468eec?utm_source=chatgpt.com)
 
 Scenario: You have multiple blocking HTTP requests or a synchronous database driver.
 
@@ -87,9 +87,9 @@ Why: While one thread waits for I/O, another thread can execute.
 
 Best for high-concurrency async I/O
 
-[Python Async Programming: The Complete Guide | DataCamp](https://images.openai.com/static-rsc-4/zvrbIBadQJNePHJ-st1NbQ4r9l9yaM-muuzVTyWatXDFOQWeWrgwDNhbixF-oouuq2aCUo6-ecjz_gVvNwFVfp7mqW3tQzGOGeW3-tCUVs-y3ixbQmoCQV48x2nOiX6yWOn0KxSyvrwgKyTkM6rLijL8u0hH1A-QkP7p87gw2wM?purpose=inline)
+![Python Async Programming: The Complete Guide | DataCamp](https://images.openai.com/static-rsc-4/zvrbIBadQJNePHJ-st1NbQ4r9l9yaM-muuzVTyWatXDFOQWeWrgwDNhbixF-oouuq2aCUo6-ecjz_gVvNwFVfp7mqW3tQzGOGeW3-tCUVs-y3ixbQmoCQV48x2nOiX6yWOn0KxSyvrwgKyTkM6rLijL8u0hH1A-QkP7p87gw2wM?purpose=inline)
 
-[datacamp.com](https://www.datacamp.com/tutorial/python-async-programming?utm_source=chatgpt.com)
+![datacamp.com](https://www.datacamp.com/tutorial/python-async-programming?utm_source=chatgpt.com)
 
 Scenario: Your AI application receives 1,000 concurrent requests and each request calls multiple external services.
 
@@ -123,9 +123,9 @@ Examples:
 
 Use for small workloads
 
-[Identify the Advantages of Concurrency and Parallelism - OpenClassrooms](https://images.openai.com/static-rsc-4/raYREz6fElYdnDV2AR6zc1SukRw_dgb4dKYZehYndtficJRABZf5uMf-HLLeZcP7LmdyTCy-2HRp6oewl0Lu1yrI_334ajKZTODLYvWmPSp2_VhvmhVa3UiI7ON4yM1Kp2trlQbQ9pUag3SR8-uxzgUBbOJvik-Ho24Y6ZDWxyM?purpose=inline)
+![Identify the Advantages of Concurrency and Parallelism - OpenClassrooms](https://images.openai.com/static-rsc-4/raYREz6fElYdnDV2AR6zc1SukRw_dgb4dKYZehYndtficJRABZf5uMf-HLLeZcP7LmdyTCy-2HRp6oewl0Lu1yrI_334ajKZTODLYvWmPSp2_VhvmhVa3UiI7ON4yM1Kp2trlQbQ9pUag3SR8-uxzgUBbOJvik-Ho24Y6ZDWxyM?purpose=inline)
 
-[openclassrooms.com](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/5684028-identify-the-advantages-of-concurrency-and-parallelism?utm_source=chatgpt.com)
+![openclassrooms.com](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/5684028-identify-the-advantages-of-concurrency-and-parallelism?utm_source=chatgpt.com)
 
 Scenario: Processing a small dataset or running a lightweight calculation.
 
@@ -139,9 +139,9 @@ When: Small workloads, simple logic, or when parallelization overhead is greater
 
 Usually not ideal for pure Python CPU work
 
-[Global Interpreter Lock (GIL) in Python – Everything You Need to Know for Interviews - DEV Community](https://images.openai.com/static-rsc-4/WlISOuxIoQkoDVNUa6uoLfnW-GJlGGvLnR01t_1oy-z5kTAGAtPIEJRsVp38xHHBC23eVnqEJPbPOHNA8ibHkc0gyGRk596cyDKJOp7COJ1fgSbiRgQ6dBpQF61MMmtmzHtbqmNg8MefgN91QcoM0reCKqw4s47_pfW36sLwnG4?purpose=inline)
+![Global Interpreter Lock (GIL) in Python – Everything You Need to Know for Interviews - DEV Community](https://images.openai.com/static-rsc-4/WlISOuxIoQkoDVNUa6uoLfnW-GJlGGvLnR01t_1oy-z5kTAGAtPIEJRsVp38xHHBC23eVnqEJPbPOHNA8ibHkc0gyGRk596cyDKJOp7COJ1fgSbiRgQ6dBpQF61MMmtmzHtbqmNg8MefgN91QcoM0reCKqw4s47_pfW36sLwnG4?purpose=inline)
 
-[dev.to](https://dev.to/imsushant12/global-interpreter-lock-gil-in-python-everything-you-need-to-know-for-interviews-5e4g?utm_source=chatgpt.com)
+![dev.to](https://dev.to/imsushant12/global-interpreter-lock-gil-in-python-everything-you-need-to-know-for-interviews-5e4g?utm_source=chatgpt.com)
 
 Scenario: Multiple Python threads performing CPU-intensive calculations.
 
@@ -162,9 +162,9 @@ Important: In conventional CPython, the GIL prevents multiple threads from simul
 
 Best for CPU-heavy independent tasks
 
-[An introduction to parallel programming using Python’s multiprocessing module | Sebastian Raschka, PhD](https://images.openai.com/static-rsc-4/5IDc5WC33R9fmyFQENRTmQppwTqiZHUwQImgM2GPadD53t6w_0JnusRRVSgkL0yeD7q4BXHiNYJXO_XmbiOSDs0EK0LCnckRRP2z5vCOi6b8v-qqefRE3tX1WA0ftSm2Oc5krZlX6ieDGZFogBR2cvIudHWcTT7cb9tjMGiRTwM?purpose=inline)
+![An introduction to parallel programming using Python’s multiprocessing module | Sebastian Raschka, PhD](https://images.openai.com/static-rsc-4/5IDc5WC33R9fmyFQENRTmQppwTqiZHUwQImgM2GPadD53t6w_0JnusRRVSgkL0yeD7q4BXHiNYJXO_XmbiOSDs0EK0LCnckRRP2z5vCOi6b8v-qqefRE3tX1WA0ftSm2Oc5krZlX6ieDGZFogBR2cvIudHWcTT7cb9tjMGiRTwM?purpose=inline)
 
-[sebastianraschka.com](https://sebastianraschka.com/Articles/2014_multiprocessing.html?utm_source=chatgpt.com)
+![sebastianraschka.com](https://sebastianraschka.com/Articles/2014_multiprocessing.html?utm_source=chatgpt.com)
 
 Scenario: Processing thousands of independent audio files or performing CPU-heavy transformations.
 
@@ -219,9 +219,9 @@ You need to:
 
 Some operations can execute concurrently.
 
-[Vector Databases Explained: pgvector, Pinecone](https://images.openai.com/static-rsc-4/kLN6HkZUP2isytOLHt2lHEHR6Y_eAUpe4gKO4oTJJmdKP6YvseIr8JJLrqLhgGHp00tT0KzFkCEVlT5KdaBGiPyyPFaYjB6ivqmUSZUK7gzeyNsJkSEb0cmz4P6XHNUQY29uu7oWo2qUNCvFl9psgLl_sv8v2cWcbQkAxfhobyw?purpose=inline)
+![Vector Databases Explained: pgvector, Pinecone](https://images.openai.com/static-rsc-4/kLN6HkZUP2isytOLHt2lHEHR6Y_eAUpe4gKO4oTJJmdKP6YvseIr8JJLrqLhgGHp00tT0KzFkCEVlT5KdaBGiPyyPFaYjB6ivqmUSZUK7gzeyNsJkSEb0cmz4P6XHNUQY29uu7oWo2qUNCvFl9psgLl_sv8v2cWcbQkAxfhobyw?purpose=inline)
 
-[cloudrps.com](https://cloudrps.com/blog/vector-databases-pgvector-explained/?utm_source=chatgpt.com)
+![cloudrps.com](https://cloudrps.com/blog/vector-databases-pgvector-explained/?utm_source=chatgpt.com)
 
 A possible execution strategy:
 
@@ -254,9 +254,9 @@ An incoming audio stream needs:
 - Text processing
 - AI summarization
 
-[A History of Text-to-Speech: From Mechanical Voices to AI Assistants - Vapi AI Blog](https://images.openai.com/static-rsc-4/M0t8i4UoTH7vRfyyE3vCsaZ8bHsPtVJZsGhs9sREHYwbatxTeO-aGDOkmZHCdH7r9uFqZ9YUpPWw0wf-Kr2C7pnlwN6U7zqFbU7HEt3mEQm0171AFp0pg6rbiM2WYRftVX0O-tmCnYbhZd8puhef-nN9NnYWMmA0i8cRE228iOg?purpose=inline)
+![A History of Text-to-Speech: From Mechanical Voices to AI Assistants - Vapi AI Blog](https://images.openai.com/static-rsc-4/M0t8i4UoTH7vRfyyE3vCsaZ8bHsPtVJZsGhs9sREHYwbatxTeO-aGDOkmZHCdH7r9uFqZ9YUpPWw0wf-Kr2C7pnlwN6U7zqFbU7HEt3mEQm0171AFp0pg6rbiM2WYRftVX0O-tmCnYbhZd8puhef-nN9NnYWMmA0i8cRE228iOg?purpose=inline)
 
-[vapi.ai](https://vapi.ai/blog/history-of-text-to-speech?utm_source=chatgpt.com)
+![vapi.ai](https://vapi.ai/blog/history-of-text-to-speech?utm_source=chatgpt.com)
 
 Possible execution strategy:
 
@@ -293,9 +293,9 @@ You receive 100 requests simultaneously.
 
 A sensible architecture:
 
-[How to Handle Too Many Requests Errors in AI APIs | Select](https://images.openai.com/static-rsc-4/lZepQlgBbIoTdLmEuWw3hxHxgqC67vJP37A7OtwnGt8N8d8Ro-ElrSPQ7N0_UDaXDqE-zYsK7dFfLmRae6b_JValQCj5Jixrzx5RaDalQVP6tZUhCD6KCJNv5vbaa-y6XLZRjcWfpHxHWrwmKJRFElJ8tFaS9_FKTGWHH3yHxxg?purpose=inline)
+![How to Handle Too Many Requests Errors in AI APIs | Select](https://images.openai.com/static-rsc-4/lZepQlgBbIoTdLmEuWw3hxHxgqC67vJP37A7OtwnGt8N8d8Ro-ElrSPQ7N0_UDaXDqE-zYsK7dFfLmRae6b_JValQCj5Jixrzx5RaDalQVP6tZUhCD6KCJNv5vbaa-y6XLZRjcWfpHxHWrwmKJRFElJ8tFaS9_FKTGWHH3yHxxg?purpose=inline)
 
-[select.ax](https://select.ax/blog/too-many-requests?utm_source=chatgpt.com)
+![select.ax](https://select.ax/blog/too-many-requests?utm_source=chatgpt.com)
 
 | Component                          | Approach                         |
 | ---------------------------------- | -------------------------------- |
